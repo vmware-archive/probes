@@ -232,5 +232,5 @@ Palo Alto, CA 94304
 Change Log
 ----------
 
-.next
-- everything is new
+0.1.0
+- first release, everything is new
