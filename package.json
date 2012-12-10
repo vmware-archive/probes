@@ -1,6 +1,6 @@
 {
 	"name": "probes",
-	"version": "0.1.0",
+	"version": "0.1.0-next",
 	"description": "Runtime performance instrumentation for JavaScript",
 	"keywords": ["probe", "timers", "monitoring", "s2js", "spring", "springsource"],
 	"licenses": [
