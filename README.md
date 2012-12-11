@@ -166,11 +166,15 @@ Tested environments:
 Getting Started
 ---------------
 
-Probes.js can be installed via `npm`, or from source.
+Probes.js can be installed via [npm](https://npmjs.org/), [Bower](http://twitter.github.com/bower/), or from source.
 
 To install without source:
 
     $ npm install probes
+
+or
+
+    $ bower install probes
 
 From source:
 
@@ -192,7 +196,7 @@ Feature requests are also welcome.
 Running the Tests
 -----------------
 
-The test suite can be run in two different modes: in node, or in a browser.  We use [Buster.JS](http://busterjs.org/) as the test driver, buster is installed automatically with other dependencies.
+The test suite can be run in two different modes: in node, or in a browser.  We use [npm](https://npmjs.org/) and [Buster.JS](http://busterjs.org/) as the test driver, buster is installed automatically with other dependencies.
 
 Before running the test suite for the first time:
 
@@ -233,7 +237,7 @@ Change Log
 ----------
 
 .next
-- nothing yet
+- Bower installable, with dependencies
 
 0.1.0
 - first release, everything is new

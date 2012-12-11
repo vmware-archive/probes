@@ -1,0 +1,9 @@
+{
+	"name": "probes",
+	"version": "0.1.0-next",
+	"main": "./probe.js",
+	"dependencies": {
+		"meld": "~1",
+		"when": "~1"
+	}
+}
