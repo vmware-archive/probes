@@ -70,9 +70,9 @@
 		 * - C is client ID, perserved across sessions for this client
 		 * - R is reserved for future use
 		 *
-		 * @param [seed] a seed UUID to derive a new UUID from, the session
-		 *   portion of the value is incremented
-		 * @returns the new UUID
+		 * @param {string} [seed] a seed UUID to derive a new UUID from, the
+		 *   session portion of the value is incremented
+		 * @returns {string} the new UUID
 		 */
 		return function generate(seed) {
 			if (seed) {

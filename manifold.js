@@ -44,7 +44,7 @@
 		/**
 		 * Lookup a probe's stats.
 		 *
-		 * @param {String} [name=<all probes>] the probe to return, defaults to
+		 * @param {string} [name=<all probes>] the probe to return, defaults to
 		 *   all probes
 		 * @returns a modification safe copy of the probe
 		 */
@@ -70,7 +70,7 @@
 		/**
 		 * Publish a new probe value to the manifold.
 		 *
-		 * @param {String} name unique name the probe's stats is indexed as
+		 * @param {string} name unique name the probe's stats is indexed as
 		 * @param stats the value produced by the probe
 		 * @param probe the probe that created the stats
 		 */
@@ -113,7 +113,7 @@
 		 * Remove a probe by name from the manifold. Does not prevent a probe
 		 * from publishing a new value or modify the probe in any way.
 		 *
-		 * @param {String} name probe to remove
+		 * @param {string} name probe to remove
 		 */
 		function remove(name) {
 			if (name in probes) {

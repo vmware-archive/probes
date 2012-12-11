@@ -71,7 +71,7 @@
 		 * Create an exporter that publishes data as cube events.
 		 *
 		 * @param {Function} client remote transport for cube formated data
-		 * @param {Number} interval frequency to collect and publish probe
+		 * @param {number} interval frequency to collect and publish probe
 		 *   values
 		 * @param {Function} store the store to fetch and save the session
 		 *   identifier

@@ -59,8 +59,8 @@
 		 * Returns true if it is a Node
 		 * Adapted from: http://stackoverflow.com/questions/384286/javascript-isdom-how-do-you-check-if-a-javascript-object-is-a-dom-object
 		 *
-		 * @param {*} it anything
-		 * @return {Boolean} true if it is a Node
+		 * @param it anything
+		 * @return {boolean} true if it is a Node
 		 */
 		isNode = typeof Node === 'object' ?
 				function (it) { return it instanceof Node; } :
@@ -77,10 +77,10 @@
 				 *
 				 * @param {Function} matcher returns true if component name is
 				 *   allowed to be probed
-				 * @param {*} target candidate component for probe
-				 * @param {String} path candidate component name for probe
-				 * @param {String} method candidate method name for probe
-				 * @return {Boolean} true if target[method] is allowed to have
+				 * @param target candidate component for probe
+				 * @param {string} path candidate component name for probe
+				 * @param {string} method candidate method name for probe
+				 * @return {boolean} true if target[method] is allowed to have
 				 *   a probe attached
 				 */
 				function allowProbe(matcher, target, path, method) {
@@ -91,10 +91,10 @@
 				 * Generate a probe name for the supplied component name,
 				 * method name, and probe type.
 				 *
-				 * @param {String} componentName component name
-				 * @param {String} methodName method name
-				 * @param {String} probeType probe type
-				 * @return {String} probe name
+				 * @param {string} componentName component name
+				 * @param {string} methodName method name
+				 * @param {string} probeType probe type
+				 * @return {string} probe name
 				 */
 				function createProbeName(componentName, methodName, probeType) {
 					var replacements = { component: componentName, method: methodName, type: probeType };
@@ -161,11 +161,11 @@
 					/**
 					 * Helper to add a single probe
 					 *
-					 * @param {String} probe name of a probe component to add
-					 * @param {*} target component to which to add the probe
-					 * @param {String} method target method to which to add the
+					 * @param {string} probe name of a probe component to add
+					 * @param target component to which to add the probe
+					 * @param {string} method target method to which to add the
 					 *   probe
-					 * @param {String} name probe name
+					 * @param {string} name probe name
 					 * @return {Promise} promise that resolves once the probe
 					 *   has been added
 					 */

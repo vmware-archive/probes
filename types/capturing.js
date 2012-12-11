@@ -44,10 +44,10 @@
 		 * @param {Function} transform function to transform the raw collected
 		 *   object. Often a shallow clone to make the values immutable.
 		 * @param {Object} target the object to capture the value from
-		 * @param {String} property the name of the property to capture
-		 * @param {Number} [freq=0] frequency to update the captured value, <=0
+		 * @param {string} property the name of the property to capture
+		 * @param {number} [freq=0] frequency to update the captured value, <=0
 		 *   means updating is disabled
-		 * @param {String} [name] the unique name for this probe
+		 * @param {string} [name] the unique name for this probe
 		 */
 		return function (transform, target, property, freq, name) {
 

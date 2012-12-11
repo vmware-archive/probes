@@ -44,8 +44,9 @@
 		 * Create a new response time gauge based probe
 		 *
 		 * @param target the context for the method to advise
-		 * @param {String} method the property name on the target to advise
-		 * @param {String} [name] name of the probe for publishing values to the manifold
+		 * @param {string} method the property name on the target to advise
+		 * @param {string} [name] name of the probe for publishing values to
+		 *   the manifold
 		 */
 		return function (target, method, name) {
 			var probe, stats, gauges;
