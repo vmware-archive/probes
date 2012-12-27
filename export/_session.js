@@ -21,9 +21,9 @@
  */
 
 (function (define, window) {
-	"use strict";
+	'use strict';
 
-	var key, undef;
+	var key;
 
 	key = 'probes/sessionId';
 

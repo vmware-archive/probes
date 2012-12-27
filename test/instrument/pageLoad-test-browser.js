@@ -20,10 +20,10 @@
  * IN THE SOFTWARE.
  */
 
-(function (buster, define, global) {
-	"use strict";
+(function (buster, define) {
+	'use strict';
 
-	var assert, refute, undef;
+	var assert, refute;
 
 	assert = buster.assert;
 	refute = buster.refute;
@@ -76,7 +76,6 @@
 		factory(function (moduleId) {
 			return require(moduleId.indexOf(packageName) === 0 ? pathToRoot + moduleId.substr(packageName.length) : moduleId);
 		});
-	},
-	typeof global === 'object' ? global : this
+	}
 	// Boilerplate for AMD and Node
 ));

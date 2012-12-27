@@ -21,9 +21,7 @@
  */
 
 (function (define, window, process) {
-	"use strict";
-
-	var undef;
+	'use strict';
 
 	function nodeUserAgent() {
 		var agent, versions;
@@ -46,7 +44,7 @@
 	 *
 	 * @author Scott Andrews
 	 */
-	define(function (require) {
+	define(function (/* require */) {
 
 		/**
 		 * @returns the browsers user agent, or a generate equivalent for node

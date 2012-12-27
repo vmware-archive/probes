@@ -21,9 +21,7 @@
  */
 
 (function (define) {
-	"use strict";
-
-	var undef;
+	'use strict';
 
 	/**
 	 * Response time probe producing gauge statistics.
@@ -76,6 +74,7 @@
 
 				stats = {};
 				for (name in gauges) {
+					/*jshint forin:false */
 					stats[name] = gauges[name].stats;
 				}
 
@@ -89,6 +88,7 @@
 				reset: function () {
 					var name;
 					for (name in gauges) {
+						/*jshint forin:false */
 						gauges[name].reset();
 					}
 					stats = collectStats();

@@ -21,9 +21,7 @@
  */
 
 (function (define) {
-	"use strict";
-
-	var undef;
+	'use strict';
 
 	/**
 	 * Serializable description of any JavaScript object

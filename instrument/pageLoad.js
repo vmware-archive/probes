@@ -21,9 +21,7 @@
  */
 
 (function (define, window) {
-	"use strict";
-
-	var undef;
+	'use strict';
 
 	/**
 	 * Captures values defined by the Performance Navigation Timing spec.

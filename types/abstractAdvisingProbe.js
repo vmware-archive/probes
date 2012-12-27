@@ -21,9 +21,7 @@
  */
 
 (function (define) {
-	"use strict";
-
-	var undef;
+	'use strict';
 
 	/**
 	 * Support for probes that utilize AOP
@@ -58,7 +56,7 @@
 				}
 
 				orig = target[method];
-				advised = meld.around(target, method, function (joinpoint) {
+				advised = meld.around(target, method, function (/* joinpoint */) {
 					try {
 						return probeImpl.advice.apply(this, arguments);
 					}

@@ -21,9 +21,7 @@
  */
 
 (function (define, global) {
-	"use strict";
-
-	var undef;
+	'use strict';
 
 	/**
 	 * Instrument the curl.js AMD loader. Any module that is a function

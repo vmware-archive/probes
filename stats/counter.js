@@ -21,16 +21,14 @@
  */
 
 (function (define) {
-	"use strict";
-
-	var undef;
+	'use strict';
 
 	/**
 	 * Incrementing counter
 	 *
 	 * @author Scott Andrews
 	 */
-	define(function (require) {
+	define(function (/* require */) {
 
 		/**
 		 * Incrementing counter

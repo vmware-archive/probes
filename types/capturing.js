@@ -21,9 +21,7 @@
  */
 
 (function (define) {
-	"use strict";
-
-	var undef;
+	'use strict';
 
 	/**
 	 * Probe that captures properties as it's value.
@@ -32,7 +30,7 @@
 	 */
 	define(function (require) {
 
-		var abstractProbe, poll;
+		var abstractProbe;
 
 		abstractProbe = require('./abstractProbe');
 

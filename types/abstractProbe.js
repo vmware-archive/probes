@@ -21,9 +21,7 @@
  */
 
 (function (define) {
-	"use strict";
-
-	var undef;
+	'use strict';
 
 	/**
 	 * Foundation support for probes
@@ -38,7 +36,6 @@
 		when = require('when');
 
 		return function (probeImpl, name) {
-			var advised;
 
 			/**
 			 * @returns current value for the probe

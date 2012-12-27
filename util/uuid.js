@@ -21,7 +21,7 @@
  */
 
 (function (define) {
-	"use strict";
+	'use strict';
 
 	var HEX = '0123456789ABCDEF';
 
@@ -59,7 +59,7 @@
 	 *
 	 * @author Scott Andrews
 	 */
-	define(function (require) {
+	define(function (/* require */) {
 
 		/**
 		 * Create a version 4 (random) UUID.

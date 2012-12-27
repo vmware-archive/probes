@@ -21,16 +21,14 @@
  */
 
 (function (define) {
-	"use strict";
-
-	var undef;
+	'use strict';
 
 	/**
 	 * Freeze util
 	 *
 	 * @author Scott Andrews
 	 */
-	define(function (require) {
+	define(function (/* require */) {
 
 		/**
 		 * @see Object.freeze

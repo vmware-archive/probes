@@ -21,7 +21,7 @@
  */
 
 (function (buster, define) {
-	"use strict";
+	'use strict';
 
 	var assert, refute, fail;
 
@@ -79,6 +79,7 @@
 				resolver = when.defer();
 				options = {
 					probes: {
+						/*jshint regexp:false */
 						testProbe: /.*/
 					}
 				};

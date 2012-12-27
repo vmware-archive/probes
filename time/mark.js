@@ -21,9 +21,7 @@
  */
 
 (function (define, process, window) {
-	"use strict";
-
-	var undef;
+	'use strict';
 
 	/**
 	 * High resolution point in time

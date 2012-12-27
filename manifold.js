@@ -21,9 +21,7 @@
  */
 
 (function (define) {
-	"use strict";
-
-	var undef;
+	'use strict';
 
 	/**
 	 * Central hub to read probe values
@@ -61,6 +59,7 @@
 			// shallow clone probes
 			stats  = {};
 			for (name in probes) {
+				/*jshint forin:false */
 				stats[name] = probes[name].stats;
 			}
 

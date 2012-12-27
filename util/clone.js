@@ -21,16 +21,14 @@
  */
 
 (function (define) {
-	"use strict";
-
-	var undef;
+	'use strict';
 
 	/**
 	 * Shallow clone util
 	 *
 	 * @author Scott Andrews
 	 */
-	define(function (require) {
+	define(function (/* require */) {
 
 		/**
 		 * Naive shallow clone.

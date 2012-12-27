@@ -21,9 +21,9 @@
  */
 
 (function (buster, define) {
-	"use strict";
+	'use strict';
 
-	var assert, refute, undef;
+	var assert, refute;
 
 	assert = buster.assert;
 	refute = buster.refute;
@@ -43,7 +43,7 @@
 			},
 
 			'should contain gauge provided stats': function (done) {
-				var p, target, func, stats;
+				var p, target, func;
 
 				func = this.spy();
 				target = { method: func };
@@ -62,7 +62,7 @@
 				assert(func.called);
 			},
 			'should use response time for gauge values': function (done) {
-				var p, target, func, stats, i, promises;
+				var p, target, func, i, promises;
 
 				promises = [];
 				func = this.spy(function () {
@@ -91,7 +91,7 @@
 				assert.called(func);
 			},
 			'should probe the target method for normal invocations': function (done) {
-				var p, target, func, stats;
+				var p, target, func;
 
 				func = this.spy();
 				target = { method: func };
@@ -110,7 +110,7 @@
 				});
 			},
 			'should probe the target method for exceptions': function (done) {
-				var p, target, func, stats;
+				var p, target, func;
 
 				func = this.spy(function () { throw new Error(); });
 				target = { method: func };
@@ -131,7 +131,7 @@
 				}
 			},
 			'should probe the target method for resolved promises': function (done) {
-				var p, target, func, stats;
+				var p, target, func;
 
 				func = this.spy(when);
 				target = { method: func };
@@ -150,7 +150,7 @@
 				});
 			},
 			'should probe the target method for rejected promises': function (done) {
-				var p, target, func, stats;
+				var p, target, func;
 
 				func = this.spy(when.reject);
 				target = { method: func };
@@ -169,7 +169,7 @@
 				});
 			},
 			'should publish stats for named probes to the manifold': function (done) {
-				var p, target, func, stats;
+				var p, target, func;
 
 				func = this.spy();
 				target = { method: func };
@@ -184,7 +184,7 @@
 				});
 			},
 			'should reset gauges when reset': function (done) {
-				var p, target, stats;
+				var p, target;
 
 				target = { method: function () {} };
 				p = responseTimeGauge(target, 'method', 'probeName');

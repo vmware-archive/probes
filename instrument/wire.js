@@ -21,9 +21,7 @@
  */
 
 (function (define) {
-	"use strict";
-
-	var undef;
+	'use strict';
 
 	/**
 	 * probes instrumentation wire.js plugin
@@ -47,7 +45,7 @@
 
 		createDefaultProbe = probe;
 		defaultProbeNameTemplate = 'wire:{component}:{method}:{type}';
-		probeNameRx = /\{.+?\}/g;
+		probeNameRx = /\{[^\}]+\}/g;
 		// Not clear what is the best lifecycle step to add probes.
 		// If you're specifically interested in collecting probe data
 		// during wiring, then 'create' would be a better time

@@ -21,7 +21,7 @@
  */
 
 (function (define) {
-	"use strict";
+	'use strict';
 
 	var toISOString, undef;
 
@@ -90,6 +90,7 @@
 
 				data = [];
 				for (probe in exp.probes) {
+					/*jshint forin:false */
 					data.push({
 						type: 'probe',
 						time: time,

@@ -21,9 +21,9 @@
  */
 
 (function (buster, define) {
-	"use strict";
+	'use strict';
 
-	var assert, refute, undef;
+	var assert, refute;
 
 	assert = buster.assert;
 	refute = buster.refute;
@@ -50,6 +50,7 @@
 					var probe, i;
 					exporter.pause();
 					for (i in events) {
+						/*jshint forin:false */
 						probe = events[i];
 						if (probe.data && probe.data.name === 'foo') {
 							break;

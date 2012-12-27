@@ -21,9 +21,9 @@
  */
 
 (function (define, process) {
-	"use strict";
+	'use strict';
 
-	var nextTick, undef;
+	var nextTick;
 
 	nextTick = process && process.nextTick || function (work) { setTimeout(work, 0); };
 

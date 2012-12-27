@@ -20,17 +20,15 @@
  * IN THE SOFTWARE.
  */
 
-(function (define, process) {
-	"use strict";
-
-	var undef;
+(function (define) {
+	'use strict';
 
 	/**
 	 * Time stamp generator
 	 *
 	 * @author Scott Andrews
 	 */
-	define(function (require) {
+	define(function (/* require */) {
 
 		/**
 		 * @returns function that returns the current time in milliseconds

@@ -21,6 +21,7 @@
  */
 
 (function (g, buster) {
+	'use strict';
 
 	g.curl = {
 		debug: true,

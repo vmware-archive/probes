@@ -21,9 +21,7 @@
  */
 
 (function (define, window) {
-	"use strict";
-
-	var undef;
+	'use strict';
 
 	/**
 	 * Captures memory statistics every five seconds.

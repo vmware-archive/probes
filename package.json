@@ -42,7 +42,7 @@
 	},
 	"main": "./probe",
 	"scripts": {
-		"test": "jshint *.js export instrument stats time test types util && buster test -e node --color none --reporter specification",
+		"test": "jshint . && buster test -e node --color none --reporter specification",
 		"start": "buster static -e browser"
 	}
 }
