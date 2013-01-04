@@ -140,14 +140,16 @@
 				target.method();
 
 				assert(func.called);
-				when(p(), function (stats) {
-					assert.equals(1, stats.all.count);
-					assert.equals(1, stats.returned.count);
-					assert.equals(0, stats.thrown.count);
-					assert.equals(1, stats.resolved.count);
-					assert.equals(0, stats.rejected.count);
-					done();
-				});
+				setTimeout(function () {
+					when(p(), function (stats) {
+						assert.equals(1, stats.all.count);
+						assert.equals(1, stats.returned.count);
+						assert.equals(0, stats.thrown.count);
+						assert.equals(1, stats.resolved.count);
+						assert.equals(0, stats.rejected.count);
+						done();
+					});
+				}, 10);
 			},
 			'should probe the target method for rejected promises': function (done) {
 				var p, target, func;
@@ -159,14 +161,16 @@
 				target.method();
 
 				assert(func.called);
-				when(p(), function (stats) {
-					assert.equals(1, stats.all.count);
-					assert.equals(1, stats.returned.count);
-					assert.equals(0, stats.thrown.count);
-					assert.equals(0, stats.resolved.count);
-					assert.equals(1, stats.rejected.count);
-					done();
-				});
+				setTimeout(function () {
+					when(p(), function (stats) {
+						assert.equals(1, stats.all.count);
+						assert.equals(1, stats.returned.count);
+						assert.equals(0, stats.thrown.count);
+						assert.equals(0, stats.resolved.count);
+						assert.equals(1, stats.rejected.count);
+						done();
+					});
+				}, 10);
 			},
 			'should publish stats for named probes to the manifold': function (done) {
 				var p, target, func;
@@ -201,27 +205,29 @@
 					assert.equals(stats, manifold('probeName'));
 
 					p.reset();
-					stats = p();
-
-					assert.equals(0, stats.all.count);
-					assert.equals(0, stats.returned.count);
-					assert.equals(0, stats.thrown.count);
-					assert.equals(0, stats.resolved.count);
-					assert.equals(0, stats.rejected.count);
-					assert.equals(stats, manifold('probeName'));
-
-					target.method();
 
 					when(p(), function (stats) {
-						assert.equals(1, stats.all.count);
-						assert.equals(1, stats.returned.count);
+						assert.equals(0, stats.all.count);
+						assert.equals(0, stats.returned.count);
 						assert.equals(0, stats.thrown.count);
 						assert.equals(0, stats.resolved.count);
 						assert.equals(0, stats.rejected.count);
 						assert.equals(stats, manifold('probeName'));
 
-						done();
+						target.method();
+
+						when(p(), function (stats) {
+							assert.equals(1, stats.all.count);
+							assert.equals(1, stats.returned.count);
+							assert.equals(0, stats.thrown.count);
+							assert.equals(0, stats.resolved.count);
+							assert.equals(0, stats.rejected.count);
+							assert.equals(stats, manifold('probeName'));
+
+							done();
+						});
 					});
+
 				});
 			},
 			'should clean up after itself when a probe is detached': function (done) {

@@ -30,10 +30,9 @@
 
 	define('probe/instrument/curl-test', function (require) {
 
-		var manifold, async;
+		var manifold;
 
 		manifold = require('probe/manifold');
-		async = require('probe/util/async');
 		require('probe/instrument/curl');
 
 		buster.testCase('probe/instrument/curl', {
@@ -44,11 +43,11 @@
 			'should instrument define': function (done) {
 				var stats;
 				global.define('probe-test/define', [], function () {});
-				async(function () {
+				setTimeout(function () {
 					stats = manifold('curl:define');
 					assert(stats.all.count > 0);
 					done();
-				});
+				}, 10);
 			},
 			'should instrument function returned from AMD factories': function (done) {
 				var func, stats;
@@ -60,11 +59,11 @@
 				});
 				func();
 				func();
-				async(function () {
+				setTimeout(function () {
 					stats = manifold('amd:probe-test/func');
 					assert.equals(2, stats.all.count);
 					done();
-				});
+				}, 10);
 			}
 		});
 

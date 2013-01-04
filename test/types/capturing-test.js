@@ -51,15 +51,19 @@
 				assert.equals(host.prop, probe());
 				refute.same(host.prop, probe());
 			},
-			'should publish captured values to the manifold': function () {
+			'should publish captured values to the manifold': function (done) {
 				var probe, host;
 
 				host = { prop: { foo: 'bar' } };
 
 				probe = capturing(clone, host, 'prop', 0, 'capturing-test');
 
-				assert.equals(host.prop, manifold()['capturing-test']);
-				refute.same(host.prop, manifold()['capturing-test']);
+				setTimeout(function () {
+					assert.equals(host.prop, manifold()['capturing-test']);
+					refute.same(host.prop, manifold()['capturing-test']);
+
+					done();
+				}, 10);
 			}
 		});
 
