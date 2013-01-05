@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2012-2013 VMware, Inc. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -28,16 +28,16 @@
 	assert = buster.assert;
 	refute = buster.refute;
 
-	define('probe/types/trace-test', function (require) {
+	define('probes/types/trace-test', function (require) {
 
 		var trace, pacify, when, delay;
 
-		trace = require('probe/types/trace');
-		pacify = require('probe/util/pacify');
+		trace = require('probes/types/trace');
+		pacify = require('probes/util/pacify');
 		when = require('when');
 		delay = require('when/delay');
 
-		buster.testCase('probe/types/trace', {
+		buster.testCase('probes/types/trace', {
 			'should create traces that mirror execution': function (done) {
 				var context, probeWork, probeNestedWork;
 

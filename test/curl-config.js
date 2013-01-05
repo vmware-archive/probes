@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2012-2013 VMware, Inc. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -25,7 +25,7 @@
 
 	global.curl = {
 		packages: [
-			{ name: 'probe', location: './', main: 'probe' },
+			{ name: 'probes', location: './', main: 'probes' },
 			{ name: 'meld', location: 'node_modules/meld', main: 'meld' },
 			{ name: 'curl', location: 'node_modules/curl/src/curl', main: 'curl' },
 			{ name: 'poly', location: 'node_modules/poly', main: 'poly' },

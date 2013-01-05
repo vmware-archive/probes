@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2012-2013 VMware, Inc. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -28,21 +28,21 @@
 	assert = buster.assert;
 	refute = buster.refute;
 
-	define('probe/instrument/curl-test', function (require) {
+	define('probes/instrument/curl-test', function (require) {
 
 		var manifold;
 
-		manifold = require('probe/manifold');
-		require('probe/instrument/curl');
+		manifold = require('probes/manifold');
+		require('probes/instrument/curl');
 
-		buster.testCase('probe/instrument/curl', {
+		buster.testCase('probes/instrument/curl', {
 			tearDown: function () {
 				manifold.flush();
 			},
 
 			'should instrument define': function (done) {
 				var stats;
-				global.define('probe-test/define', [], function () {});
+				global.define('probes-test/define', [], function () {});
 				setTimeout(function () {
 					stats = manifold('curl:define');
 					assert(stats.all.count > 0);
@@ -51,16 +51,16 @@
 			},
 			'should instrument function returned from AMD factories': function (done) {
 				var func, stats;
-				global.define('probe-test/func', [], function () {
+				global.define('probes-test/func', [], function () {
 					return function () {};
 				});
-				global.define('probe-test/consumer', ['probe-test/func'], function (f) {
+				global.define('probes-test/consumer', ['probes-test/func'], function (f) {
 					func = f;
 				});
 				func();
 				func();
 				setTimeout(function () {
-					stats = manifold('amd:probe-test/func');
+					stats = manifold('amd:probes-test/func');
 					assert.equals(2, stats.all.count);
 					done();
 				}, 10);

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2012-2013 VMware, Inc. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -28,15 +28,15 @@
 	assert = buster.assert;
 	refute = buster.refute;
 
-	define('probe/types/capturing-test', function (require) {
+	define('probes/types/capturing-test', function (require) {
 
 		var capturing, manifold, clone;
 
-		capturing = require('probe/types/capturing');
-		manifold = require('probe/manifold');
-		clone = require('probe/util/clone');
+		capturing = require('probes/types/capturing');
+		manifold = require('probes/manifold');
+		clone = require('probes/util/clone');
 
-		buster.testCase('probe/types/capturing', {
+		buster.testCase('probes/types/capturing', {
 			tearDown: function () {
 				manifold.flush();
 			},

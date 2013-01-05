@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2012-2013 VMware, Inc. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -28,11 +28,11 @@
 	assert = buster.assert;
 	refute = buster.refute;
 
-	define('probe/time/duration-test', function (require) {
+	define('probes/time/duration-test', function (require) {
 
-		var duration = require('probe/time/duration');
+		var duration = require('probes/time/duration');
 
-		buster.testCase('probe/time/duration', {
+		buster.testCase('probes/time/duration', {
 			'should represent the different between start and end times in micros': function () {
 				var d = duration(0, 1);
 				assert.equals(1, d.micros);

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2012-2013 VMware, Inc. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -28,11 +28,11 @@
 	assert = buster.assert;
 	refute = buster.refute;
 
-	define('probe/time/now-test', function (require) {
+	define('probes/time/now-test', function (require) {
 
-		var now = require('probe/time/now');
+		var now = require('probes/time/now');
 
-		buster.testCase('probe/time/now', {
+		buster.testCase('probes/time/now', {
 			'should return the current time in millis': function () {
 				var t1, t2;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2012-2013 VMware, Inc. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -28,14 +28,14 @@
 	assert = buster.assert;
 	refute = buster.refute;
 
-	define('probe/stats/mean-test', function (require) {
+	define('probes/stats/mean-test', function (require) {
 
 		var mean, counter;
 
-		mean = require('probe/stats/mean');
-		counter = require('probe/stats/counter');
+		mean = require('probes/stats/mean');
+		counter = require('probes/stats/counter');
 
-		buster.testCase('probe/stats/mean', {
+		buster.testCase('probes/stats/mean', {
 			'update the mean for each new value': function () {
 				var m = mean();
 				assert.same(1, m(1));

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2012-2013 VMware, Inc. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -28,11 +28,11 @@
 	assert = buster.assert;
 	refute = buster.refute;
 
-	define('probe/util/uuid-test', function (require) {
+	define('probes/util/uuid-test', function (require) {
 
-		var uuid = require('probe/util/uuid');
+		var uuid = require('probes/util/uuid');
 
-		buster.testCase('probe/util/uuid', {
+		buster.testCase('probes/util/uuid', {
 			'should generate a version 4 uuid': function () {
 				assert(/^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/.test(uuid()));
 			},

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2012-2013 VMware, Inc. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -28,15 +28,15 @@
 	assert = buster.assert;
 	refute = buster.refute;
 
-	define('probe/instrument/pageLoad-test', function (require) {
+	define('probes/instrument/pageLoad-test', function (require) {
 
 		var pageLoad, manifold, clone;
 
-		pageLoad = require('probe/instrument/pageLoad');
-		manifold = require('probe/manifold');
-		clone = require('probe/util/clone');
+		pageLoad = require('probes/instrument/pageLoad');
+		manifold = require('probes/manifold');
+		clone = require('probes/util/clone');
 
-		buster.testCase('probe/instrument/pageLoad', {
+		buster.testCase('probes/instrument/pageLoad', {
 			requiresSupportFor: {
 				'window.performance.navigation': window.performance && window.performance.navigation
 			},

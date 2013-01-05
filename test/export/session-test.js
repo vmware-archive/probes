@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2012-2013 VMware, Inc. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -28,15 +28,15 @@
 	assert = buster.assert;
 	refute = buster.refute;
 
-	define('probe/export/session-test', function (require) {
+	define('probes/export/session-test', function (require) {
 
 		var session, uuidRE;
 
-		session = require('probe/export/_session');
+		session = require('probes/export/_session');
 
 		uuidRE = /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/;
 
-		buster.testCase('probe/export/session', {
+		buster.testCase('probes/export/session', {
 			'should generate a new uuid as the session id': function () {
 				assert(uuidRE.test(session()));
 			},

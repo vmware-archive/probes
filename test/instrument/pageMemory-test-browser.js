@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2012-2013 VMware, Inc. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -28,14 +28,14 @@
 	assert = buster.assert;
 	refute = buster.refute;
 
-	define('probe/instrument/pageMemory-test', function (require) {
+	define('probes/instrument/pageMemory-test', function (require) {
 
 		var pageMemory, manifold;
 
-		pageMemory = require('probe/instrument/pageMemory');
-		manifold = require('probe/manifold');
+		pageMemory = require('probes/instrument/pageMemory');
+		manifold = require('probes/manifold');
 
-		buster.testCase('probe/instrument/pageMemory', {
+		buster.testCase('probes/instrument/pageMemory', {
 			requiresSupportFor: {
 				'window.performance.memory': window.performance && window.performance.memory
 			},

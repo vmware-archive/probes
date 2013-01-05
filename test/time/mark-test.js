@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2012-2013 VMware, Inc. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -28,14 +28,14 @@
 	assert = buster.assert;
 	refute = buster.refute;
 
-	define('probe/time/mark-test', function (require) {
+	define('probes/time/mark-test', function (require) {
 
-		var mark = require('probe/time/mark');
+		var mark = require('probes/time/mark');
 
 		// NOTE: high resolution time implementations may skew from Date.now(),
 		// particularly in a VM. Rebooting will usually do the trick.
 
-		buster.testCase('probe/time/mark', {
+		buster.testCase('probes/time/mark', {
 			'should increment mark chronologically': function () {
 				var t1, t2, t3;
 				t1 = mark();

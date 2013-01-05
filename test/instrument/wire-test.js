@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2012-2013 VMware, Inc. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -29,14 +29,14 @@
 	refute = buster.refute;
 	fail = buster.assertions.fail;
 
-	define('probe/instrument/wire-test', function (require) {
+	define('probes/instrument/wire-test', function (require) {
 
 		var instrumentWire, when;
 
-		instrumentWire = require('probe/instrument/wire');
+		instrumentWire = require('probes/instrument/wire');
 		when = require('when');
 
-		buster.testCase('probe/instrument/wire', {
+		buster.testCase('probes/instrument/wire', {
 			'should instrument component methods with default probes': function (done) {
 				var destroyed, resolver, options, plugin, proxy, target, wire, probe;
 

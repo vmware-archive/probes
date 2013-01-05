@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2012-2013 VMware, Inc. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -32,11 +32,11 @@
 		return Math.floor(value * 1e6) / 1e6;
 	}
 
-	define('probe/stats/gauge-test', function (require) {
+	define('probes/stats/gauge-test', function (require) {
 
-		var gauge = require('probe/stats/gauge');
+		var gauge = require('probes/stats/gauge');
 
-		buster.testCase('probe/stats/gauge', {
+		buster.testCase('probes/stats/gauge', {
 			'should contain default values before first tick': function () {
 				var g, stats;
 

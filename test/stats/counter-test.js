@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2012-2013 VMware, Inc. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -28,11 +28,11 @@
 	assert = buster.assert;
 	refute = buster.refute;
 
-	define('probe/stats/counter-test', function (require) {
+	define('probes/stats/counter-test', function (require) {
 
-		var counter = require('probe/stats/counter');
+		var counter = require('probes/stats/counter');
 
-		buster.testCase('probe/stats/counter', {
+		buster.testCase('probes/stats/counter', {
 			'should increment counter': function () {
 				var count = counter();
 				assert.equals(0, count());

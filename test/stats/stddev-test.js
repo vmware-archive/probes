@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2012-2013 VMware, Inc. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -32,15 +32,15 @@
 		return Math.floor(value * 1e6) / 1e6;
 	}
 
-	define('probe/stats/stddev-test', function (require) {
+	define('probes/stats/stddev-test', function (require) {
 
 		var stddev, mean, counter;
 
-		stddev = require('probe/stats/stddev');
-		mean = require('probe/stats/mean');
-		counter = require('probe/stats/counter');
+		stddev = require('probes/stats/stddev');
+		mean = require('probes/stats/mean');
+		counter = require('probes/stats/counter');
 
-		buster.testCase('probe/stats/stddev', {
+		buster.testCase('probes/stats/stddev', {
 			'update the standard deviation for each new value': function () {
 				var sd = stddev();
 				assert.same(NaN, sd(13));

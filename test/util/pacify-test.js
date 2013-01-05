@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2012-2013 VMware, Inc. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -28,11 +28,11 @@
 	assert = buster.assert;
 	refute = buster.refute;
 
-	define('probe/util/pacify-test', function (require) {
+	define('probes/util/pacify-test', function (require) {
 
 		var pacify, when, hasGetPrototypeOf;
 
-		pacify = require('probe/util/pacify');
+		pacify = require('probes/util/pacify');
 		when = require('when');
 
 		hasGetPrototypeOf = (function () {
@@ -43,7 +43,7 @@
 			return 'getPrototypeOf' in Object && Object.getPrototypeOf(new C()) === C.prototype;
 		}());
 
-		buster.testCase('probe/util/pacify', {
+		buster.testCase('probes/util/pacify', {
 			'should pacify booleans': function () {
 				var p = pacify(true);
 				assert.same('boolean', p.type);

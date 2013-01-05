@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2012-2013 VMware, Inc. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -28,11 +28,11 @@
 	assert = buster.assert;
 	refute = buster.refute;
 
-	define('probe/util/async-test', function (require) {
+	define('probes/util/async-test', function (require) {
 
-		var async = require('probe/util/async');
+		var async = require('probes/util/async');
 
-		buster.testCase('probe/util/async', {
+		buster.testCase('probes/util/async', {
 			'should defer work from the current task': function (done) {
 				var foo, p;
 

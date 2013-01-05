@@ -40,7 +40,7 @@
 		"buster": "",
 		"jshint": ""
 	},
-	"main": "./probe",
+	"main": "./probes",
 	"scripts": {
 		"test": "jshint . && buster test -e node --color none --reporter specification",
 		"start": "buster static -e browser"

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 VMware, Inc. All Rights Reserved.
+ * Copyright (c) 2012-2013 VMware, Inc. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -28,11 +28,11 @@
 	assert = buster.assert;
 	refute = buster.refute;
 
-	define('probe/stats/range-test', function (require) {
+	define('probes/stats/range-test', function (require) {
 
-		var range = require('probe/stats/range');
+		var range = require('probes/stats/range');
 
-		buster.testCase('probe/stats/range', {
+		buster.testCase('probes/stats/range', {
 			'should update the max and min as appropriate': function () {
 				var r = range();
 
