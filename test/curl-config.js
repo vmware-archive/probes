@@ -20,15 +20,12 @@
  * IN THE SOFTWARE.
  */
 
-(function (g, buster) {
+(function (global, buster) {
 	'use strict';
 
-	g.curl = {
-		debug: true,
-		apiName: 'curl',
-		baseUrl: '',
+	global.curl = {
 		packages: [
-			{ name: 'probe', location: '', main: 'probe' },
+			{ name: 'probe', location: './', main: 'probe' },
 			{ name: 'meld', location: 'node_modules/meld', main: 'meld' },
 			{ name: 'curl', location: 'node_modules/curl/src/curl', main: 'curl' },
 			{ name: 'poly', location: 'node_modules/poly', main: 'poly' },

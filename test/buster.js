@@ -36,7 +36,18 @@ config['probes:browser'] = {
 	autoRun: false,
 	rootPath: '../',
 	resources: [
-		'**'
+		// '**' // ** is busted in buster
+		'*.js',
+		'export/**/*.js',
+		'instrument/**/*.js',
+		'stats/**/*.js',
+		'time/**/*.js',
+		'types/**/*.js',
+		'util/**/*.js',
+		'node_modules/curl/**/*.js',
+		'node_modules/meld/**/*.js',
+		'node_modules/poly/**/*.js',
+		'node_modules/when/**/*.js'
 	],
 	libs: [
 		'test/curl-config.js',
