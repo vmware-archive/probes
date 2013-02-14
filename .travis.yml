@@ -1,4 +1,11 @@
+---
 language: node_js
 node_js:
-  - 0.6
-  - 0.8
+- 0.8
+script: npm run-script ci
+env:
+  global:
+  - SELENIUM_HOST=ondemand.saucelabs.com
+  - SELENIUM_PORT=80
+  - SELENIUM_USERNAME=s2js-probes
+  - secure: "ur8NEIwoin8tlBnhMmuIvhqhXFGz5/C0t9iExNH6VVDP8LZsyICgHJTipejo\nyiUmneDKzPCZ0wDwi4L9R2zf4oNKRhRmdTeZ9b2B6CEs9XC+jCKjwHXkRkoY\ncodxOU5FA6t/eMOGEnO429EP0VAY6zNJYhXF1KAxF8KM+jYz5N8="

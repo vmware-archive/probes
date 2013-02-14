@@ -36,13 +36,18 @@
 	},
 	"devDependencies": {
 		"curl": "https://github.com/cujojs/curl/tarball/0.7.2",
-		"poly": "https://github.com/cujojs/poly/tarball/0.5.1",
+		"poly": "https://github.com/cujojs/poly/tarball/5e655db18a61181bbceb65f2db3549e328a1b847",
+		"rest": "~0.8",
 		"buster": "",
-		"jshint": ""
+		"buster-static": "https://github.com/scothis/buster-static/tarball/html5",
+		"jshint": "",
+		"sauce-connect-launcher": "",
+		"wd": ""
 	},
 	"main": "./probes",
 	"scripts": {
 		"test": "jshint . && buster test -e node --color none --reporter specification",
+		"ci": "npm test && node test/sauce-driver.js",
 		"start": "buster static -e browser"
 	}
 }

@@ -30,43 +30,54 @@
 
 	define('probes/time/timer-test', function (require) {
 
-		var timer = require('probes/time/timer');
+		var timer, now, clock;
+
+		timer = require('probes/time/timer');
+		now = require('probes/time/now');
+
+		clock = (function () {
+			var base = Date.now(), drift = 0;
+			return {
+				now: function () {
+					return base + drift;
+				},
+				mark: function () {
+					return drift * 1000;
+				},
+				tick: function (ms) {
+					drift += ms;
+				},
+				set: function (ms) {
+					base = ms;
+					drift = 0;
+				}
+			};
+		}());
 
 		buster.testCase('probes/time/timer', {
-			'should measure a duration': function (done) {
-				var t = timer();
-				setTimeout(function () {
-					var duration = t.end();
-
-					// check time range, allowing for timer fudge, lots of fudge
-					assert(duration.millis > 0);
-					assert(duration.millis < 50);
-					done();
-				}, 10);
+			'should measure a duration': function () {
+				var t, duration;
+				t = timer(clock);
+				clock.tick(10);
+				duration = t.end();
+				assert.same(10, duration.millis);
 			},
-			'should restart a timer by calling start': function (done) {
-				var t = timer();
-				setTimeout(function () {
-					var duration = t.start().end();
-					assert.equals(0, duration.millis);
-					done();
-				}, 10);
+			'should restart a timer by calling start': function () {
+				var t, duration;
+				t = timer(clock);
+				clock.tick(10);
+				duration = t.start().end();
+				assert.equals(0, duration.millis);
 			},
-			'should return a new duration for each end call': function (done) {
+			'should return a new duration for each end call': function () {
 				var t, d1, d2;
-
-				t = timer();
+				t = timer(clock);
 				d1 = t.end();
-				setTimeout(function () {
-					d2 = t.end();
-
-					refute.same(d1, d2);
-					assert(d1.micros < d2.micros);
-					done();
-				}, 10);
+				clock.tick(10);
+				d2 = t.end();
+				assert.same(10, d2.millis - d1.millis);
 			}
 		});
-
 
 	});
 

@@ -207,7 +207,7 @@
 
 				context = {
 					work: function (a, b) {
-						return delay(a + b, 10);
+						return delay(a + b, 50);
 					}
 				};
 

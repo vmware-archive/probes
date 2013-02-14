@@ -39,13 +39,15 @@
 
 		/**
 		 * Create a new timer that produces durations
+		 *
+		 * @param [clock] a custom clock with implementations of mark() and now(), mostly used for testing
 		 */
-		function timer() {
+		function timer(clock) {
 
-			var start, timestamp;
+			var m, n, start, timestamp;
 
-			start = mark();
-			timestamp = now();
+			m = clock ? clock.mark : mark;
+			n = clock ? clock.now : now;
 
 			return freeze({
 
@@ -55,8 +57,8 @@
 				 * @returns the timer for API chaining
 				 */
 				start: function () {
-					start = mark();
-					timestamp = now();
+					start = m();
+					timestamp = n();
 					return this;
 				},
 
@@ -68,10 +70,10 @@
 				 * @returns a new duration
 				 */
 				end: function end() {
-					return duration(start, mark(), timestamp);
+					return duration(start, m(), timestamp);
 				}
 
-			});
+			}).start();
 
 		}
 

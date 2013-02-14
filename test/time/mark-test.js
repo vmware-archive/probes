@@ -57,10 +57,10 @@
 					t2 = mark();
 					diff = t2 - t1;
 					// check time range, allowing for timer fudge, lots of fudge
-					assert(diff > 0);
-					assert(diff < 100e3);
+					assert(diff > 1000);
+					assert(diff < 1000e3);
 					done();
-				}, 10);
+				}, 100);
 			},
 			'should provide date offset removed from timestamps': function () {
 				var t, offset, now;
@@ -68,8 +68,8 @@
 				t = Math.floor(mark() / 1e3);
 				now = new Date().getTime();
 				// compare with now allowing for clock fudge
-				assert(now > t + offset - 5);
-				assert(now < t + offset + 5);
+				assert(now > t + offset - 50);
+				assert(now < t + offset + 50);
 			}
 		});
 

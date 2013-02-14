@@ -23,6 +23,8 @@
 (function (define) {
 	'use strict';
 
+	var undef;
+
 	/**
 	 * Serializable description of any JavaScript object
 	 *
@@ -36,7 +38,8 @@
 			if ('name' in func) {
 				return func.name;
 			}
-			return func.toString().match(/^\s*function ([^(]*)/)[1];
+			var match = func.toString().match(/^\s*function ([^(]*)/);
+			return match ? match[1] : undef;
 		}
 
 		/**
@@ -55,6 +58,10 @@
 			var description = {};
 
 			description.type = obj && typeof obj.then === 'function' ? 'promise' : typeof obj;
+			if (description.type === 'function' && obj instanceof RegExp) {
+				// spec ambiguity led to older browsers reporting a regex as type 'function'
+				description.type = 'object';
+			}
 			if (description.type !== 'function' && description.type !== 'undefined') {
 				description.value = obj !== null && obj.toString ?
 					obj.toString() :

@@ -155,12 +155,14 @@ Our goal is to work in every major JavaScript environment; Node.js and major bro
 If your preferred environment is not supported, please let us know. Some features may not be available in all environments.
 
 Tested environments:
-- Node.js (0.6, 0.8)
+- Node.js (0.8, should wok in earlier versions)
 - Chrome (stable)
-- Firefox (stable, LTS, should work in earlier versions)
+- Firefox (stable, ESR, should work in earlier versions)
 - IE (6-10)
-- Safari (6+, should work in earlier versions)
-- Opera (12+, should work in earlier versions)
+- Safari (5, 6, iOS 4-6, should work in earlier versions)
+- Opera (11, 12, should work in earlier versions)
+
+Specific browser test are provided by [Travis CI](https://travis-ci.org/s2js/probes) and [Sauce Labs' Open Sauce Plan](https://saucelabs.com/opensource). You can see [specific browser test results](https://saucelabs.com/u/s2js-probes), although odds are they do not reference this specific release/branch/commit.
 
 
 Getting Started
@@ -238,6 +240,9 @@ Change Log
 
 .next
 - Bower installable, with dependencies
+- mutli-browser testing with Sauce Labs
+- timers may accept a custom clock, particularly useful for time sensative tests
+- pacify now reports a regex correctly as an object, some older platforms reported it as a function
 
 0.1.0
 - first release, everything is new
