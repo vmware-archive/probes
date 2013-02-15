@@ -241,6 +241,7 @@ Change Log
 .next
 - Bower installable, with dependencies
 - mutli-browser testing with Sauce Labs
+- capturing probe will now propery poll if provided a frequency
 - timers may accept a custom clock, particularly useful for time sensative tests
 - pacify now reports a regex correctly as an object, some older platforms reported it as a function
 

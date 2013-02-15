@@ -30,11 +30,15 @@
 
 	define('probes/types/capturing-test', function (require) {
 
-		var capturing, manifold, clone;
+		var capturing, manifold, clone, clock;
 
 		capturing = require('probes/types/capturing');
 		manifold = require('probes/manifold');
 		clone = require('probes/util/clone');
+
+		function raw(obj) {
+			return obj;
+		}
 
 		buster.testCase('probes/types/capturing', {
 			tearDown: function () {
@@ -64,6 +68,49 @@
 
 					done();
 				}, 10);
+			},
+			'should poll for updated values, and stop once detached': {
+				setUp: function () {
+					clock = this.useFakeTimers();
+				},
+				tearDown: function () {
+					clock.restore();
+				},
+				'': function () {
+					var probe, host, interval;
+
+					host = { count: 0 };
+					interval = setInterval(function () {
+						host.count += 1;
+					}, 1);
+
+					probe = capturing(raw, host, 'count', 1, 'capturing-test');
+
+					clock.tick(1);
+					assert.same(1, manifold()['capturing-test']);
+					clock.tick(1);
+					assert.same(2, manifold()['capturing-test']);
+					clock.tick(1);
+					assert.same(3, manifold()['capturing-test']);
+
+					probe.detach();
+
+					clock.tick(1);
+					assert.same(3, manifold()['capturing-test']);
+					clock.tick(1);
+					assert.same(3, manifold()['capturing-test']);
+
+					probe.attach();
+
+					assert.same(5, manifold()['capturing-test']);
+					clock.tick(1);
+					assert.same(6, manifold()['capturing-test']);
+					clock.tick(1);
+					assert.same(7, manifold()['capturing-test']);
+
+					probe.detach();
+					clearInterval(interval);
+				}
 			}
 		});
 

@@ -23,6 +23,8 @@
 (function (define) {
 	'use strict';
 
+	var undef;
+
 	/**
 	 * Probe that captures properties as it's value.
 	 *
@@ -30,9 +32,10 @@
 	 */
 	define(function (require) {
 
-		var abstractProbe;
+		var abstractProbe, poll;
 
 		abstractProbe = require('./abstractProbe');
+		poll = require('when/poll');
 
 		/**
 		 * Create a capturing probe. Capturing probes work on data objects
@@ -49,7 +52,7 @@
 		 */
 		return function (transform, target, property, freq, name) {
 
-			var probe, impl;
+			var probe, impl, poller;
 
 			impl = {
 				get: function () {
@@ -59,14 +62,46 @@
 
 			probe = abstractProbe(impl, name);
 
-			if (impl.publish) {
-				impl.publish();
+			/**
+			 * Attach the probe to the target to start collecting metrics
+			 *
+			 * @returns probe for API chaining
+			 */
+			probe.attach = function attach() {
+				if (poller) {
+					// already applied
+					return probe;
+				}
 
 				if (freq > 0) {
-					// TODO poll for updated values
-					console.warn('capturing probe polling is not implemented yet');
+					// poll for updated values
+					poller = poll(impl.publish, freq);
 				}
-			}
+				else {
+					impl.publish();
+				}
+
+				return probe;
+			};
+
+			/**
+			 * Detach the probe from the target to stop collecting metrics
+			 *
+			 * @returns probe for API chaining
+			 */
+			probe.detach = function detach() {
+				if (!poller) {
+					// not applied
+					return probe;
+				}
+
+				poller.cancel();
+				poller = undef;
+
+				return probe;
+			};
+
+			probe.attach();
 
 			return probe;
 
