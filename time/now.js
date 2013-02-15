@@ -34,15 +34,8 @@
 		 * @returns function that returns the current time in milliseconds
 		 *   since epoch
 		 */
-
-		if (typeof Date.now === 'function') {
-			// the fastest way to get a time stamp, not universally supported
-			return Date.now;
-		}
-
 		return function now() {
-			// slightly slower, available everywhere
-			return new Date().getTime();
+			return Date.now();
 		};
 
 	});

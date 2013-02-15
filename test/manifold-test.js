@@ -30,7 +30,7 @@
 
 	define('probes/manifold-test', function (require) {
 
-		var manifold, userAgent;
+		var manifold, userAgent, clock;
 
 		manifold = require('probes/manifold');
 		userAgent = require('probes/util/userAgent');
@@ -79,16 +79,23 @@
 				assert.same(all2.a, statA2);
 				assert.same(all2.b, statB);
 			},
-			'should export probe stats with a timestamp and user agent': function () {
-				var exp, now;
+			'should export probe stats with a timestamp and user agent': {
+				setUp: function () {
+					clock = this.useFakeTimers(new Date().getTime());
+				},
+				tearDown: function () {
+					clock.restore();
+				},
+				'': function () {
+					var exp, now;
 
-				exp = manifold.exports();
-				now = new Date().getTime();
+					exp = manifold.exports();
+					now = new Date().getTime();
 
-				assert.same(userAgent, exp.userAgent);
-				assert.equals(manifold(), exp.probes);
-				assert(now > exp.timestamp - 2);
-				assert(now < exp.timestamp + 2);
+					assert.same(userAgent, exp.userAgent);
+					assert.equals(manifold(), exp.probes);
+					assert.same(now, exp.timestamp);
+				}
 			},
 			'should reset all probes on flush': function () {
 				var stats, probe;

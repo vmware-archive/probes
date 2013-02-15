@@ -35,12 +35,15 @@
 		pageMemory = require('probes/instrument/pageMemory');
 		manifold = require('probes/manifold');
 
-		// stop value polling in case the testcase isn't run
-		pageMemory.detach();
+		if (pageMemory) {
+			// stop value polling in case the testcase isn't run
+			pageMemory.detach();
+		}
 
 		buster.testCase('probes/instrument/pageMemory', {
 			requiresSupportFor: {
-				'window.performance.memory': window.performance && window.performance.memory
+				'window.performance.memory': window.performance && window.performance.memory,
+				'pageMemory': !!pageMemory
 			},
 			setUp: function () {
 				pageMemory.attach();

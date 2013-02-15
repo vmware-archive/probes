@@ -30,17 +30,24 @@
 
 	define('probes/time/now-test', function (require) {
 
-		var now = require('probes/time/now');
+		var now, clock;
+
+		now = require('probes/time/now');
 
 		buster.testCase('probes/time/now', {
+			setUp: function () {
+				clock = this.useFakeTimers(Math.floor(Math.random() * 1e9));
+			},
+			tearDown: function () {
+				clock.restore();
+			},
 			'should return the current time in millis': function () {
 				var t1, t2;
 
 				t1 = new Date().getTime();
 				t2 = now();
 
-				assert(t1 > t2 - 2);
-				assert(t1 < t2 + 2);
+				assert.same(t1, t2);
 			}
 		});
 
