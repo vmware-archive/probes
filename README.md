@@ -1,3 +1,5 @@
+# probes is no longer actively maintained by VMware, Inc.
+
 Probes.js
 =========
 
